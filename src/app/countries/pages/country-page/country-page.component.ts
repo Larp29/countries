@@ -30,6 +30,11 @@ export class CountryPageComponent implements OnInit{
     private countriesService: CountriesService ){}
   
   ngOnInit(): void {
+
+    setInterval(() => {
+      this.currentTime = new Date();
+    }, 1000)
+
     this.activatedRouted.params
       .pipe(
         switchMap( params => this.countriesService.searchCountryByAlphaCode( params['id'] )),
@@ -44,10 +49,4 @@ export class CountryPageComponent implements OnInit{
       );
   }
 
-  // getCurrentTime(): Date{
-  //   setInterval(()=>{
-  //     return new Date();
-  //   },1000);
-  //   return new Date();
-  // }
 }
