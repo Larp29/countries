@@ -1,0 +1,61 @@
+<div *ngIf="country">
+    <div class="row">
+        <div class="col-12">
+            <h2> País: <strong> {{ country.name.common }} </strong> </h2>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="country.flags.svg" [alt]="country.name.common" class="img-thumbnail">
+        </div>
+        <div class="col">
+            <h3>Información</h3>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong>Población:</strong> {{ country.population | number }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Código:</strong> {{ country.cca3 }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Capital:</strong> {{ country.capital }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Región:</strong> {{ country.region }}
+                </li>
+                <li class="list-group-item">
+                    <strong>Monedas: </strong> <span *ngFor="let currency of country.currencies | keyvalue">{{ currency.key }} ( {{ currency.value.symbol }} )</span>
+                </li>
+                <li class="list-group-item">
+                    <strong>Hora: </strong> {{ currentTime | date : 'medium': country.timezones +''}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-4">
+        <div class="col">
+            <h3 class="mb-4">Traducciones</h3>
+            <div class="d-flex flex-wrap">
+                <span class="badge bg-primary m-1" *ngFor="let translation of country.translations | keyvalue"> {{ translation.value.common }} </span>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-4">
+        <div class="col">
+            <h3 class="mb-4">Localización</h3>
+            <div>
+                <iframe 
+                width="770" 
+                height="510" 
+                [src]="srcMaps"
+                frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
