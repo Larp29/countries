@@ -7,10 +7,10 @@
         <shared-search-box placeHolder="Buscar por capital" (textValueEvent) = "searchByCapital($event)"></shared-search-box>
     </div>
 </div>
-
+<hr>
 <div class="row">
     <div class="col">
-        <hr>
+        <shared-loading-spinner *ngIf="isLoading"></shared-loading-spinner>
         <countries-table [countries]="countries"></countries-table>
     </div>
 </div>
