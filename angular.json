@@ -31,7 +31,6 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "https://[path]",
               "budgets": [
                 {
                   "type": "initial",
