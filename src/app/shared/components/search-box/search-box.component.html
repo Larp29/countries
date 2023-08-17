@@ -1,5 +1,6 @@
-<input type="text" 
+<input type="text"
 [placeholder]="placeHolder"
 (keyup)="debouncedValue( textSB.value )"
 class="form-control"
+[value]="initialValue"
 #textSB>

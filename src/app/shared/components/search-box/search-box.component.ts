@@ -13,6 +13,9 @@ export class SearchBoxComponent implements OnInit, OnDestroy {
   @Input()
   public placeHolder: string = '';
 
+  @Input()
+  public initialValue: string = '';
+
   @Output() textValueEvent = new EventEmitter<string>();
 
   ngOnInit(): void {
